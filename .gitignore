@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Research and handoff notes for AI-assisted sessions (local only)
+ai_docs/
