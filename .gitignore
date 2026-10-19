@@ -25,3 +25,6 @@ dist-ssr
 
 # Research and handoff notes for AI-assisted sessions (local only)
 ai_docs/
+
+# Original photos (full size, with EXIF); optimized copies go in src/assets/photos
+photos-src/
