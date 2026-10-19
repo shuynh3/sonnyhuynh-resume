@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { MarkGithubIcon } from '@primer/octicons-react'
 import { Button, Card, Link, SiteNav, Tag, ThemeToggle } from '@sonnyhuynh/ui'
+import portrait from './assets/photos/self_portrait.webp'
 
 const RESUME_PDF = '/sonny-huynh-resume.pdf'
 const EMAIL = 'sonny.huynh.dev@gmail.com'
@@ -84,21 +85,12 @@ function Panel({ children, className = '', id }: { children: ReactNode; classNam
 }
 
 // Stand-in for a photo until real images are added.
-function PhotoSlot({
-  label,
-  tone = 'muted',
-  className = '',
-}: {
-  label: string
-  tone?: 'muted' | 'eucalyptus'
-  className?: string
-}) {
-  const colors = tone === 'eucalyptus' ? 'bg-eucalyptus text-on-accent' : 'bg-surface-muted text-ink-muted'
+function PhotoSlot({ label, className = '' }: { label: string; className?: string }) {
   return (
     <div
       role="img"
       aria-label={`Photo placeholder: ${label}`}
-      className={`flex items-end p-2 font-mono text-meta ${colors} ${className}`}
+      className={`flex items-end bg-surface-muted p-2 font-mono text-meta text-ink-muted ${className}`}
     >
       [{label}]
     </div>
@@ -150,11 +142,33 @@ function App() {
               </Button>
             </div>
           </div>
-          <PhotoSlot
-            label="portrait"
-            tone="eucalyptus"
-            className="rise order-first h-[136px] w-[112px] md:order-none md:h-[340px] md:w-[280px] md:p-4"
-          />
+          {/* Polaroid-style frame: eucalyptus mat with a deeper bottom edge around a square photo.
+              The date stamp mimics a film camera's orange imprint, so it is the one color outside the tokens. */}
+          <figure className="rise relative order-first m-0 w-[112px] rotate-2 bg-eucalyptus p-2 pb-8 md:order-none md:w-[280px] md:p-4 md:pb-0">
+            {/* Thumbtack pinning the polaroid to the page. */}
+            <span
+              aria-hidden="true"
+              className="absolute -top-1.5 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full bg-accent"
+            />
+            <div className="relative">
+              <img
+                src={portrait}
+                alt="Sonny Huynh in a black shirt and tie"
+                width={560}
+                height={560}
+                className="block aspect-square w-full object-cover"
+              />
+              <time
+                dateTime="2026-10-12"
+                className="absolute top-1 left-2 font-mono text-meta text-[#ff9a3c] [text-shadow:0_0_4px_rgb(255_120_40/0.6)] md:top-2 md:left-3"
+              >
+                10 12 '26
+              </time>
+            </div>
+            <figcaption className="hidden h-16 items-end justify-end pb-4 whitespace-nowrap font-mono text-meta text-on-accent md:flex">
+              50mm 1/125 f/2.8 ISO100
+            </figcaption>
+          </figure>
         </section>
 
         {/* Now and gear */}
