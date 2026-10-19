@@ -150,7 +150,7 @@ function App() {
           </div>
           {/* Polaroid-style frame: eucalyptus mat with a deeper bottom edge around a square photo.
               The date stamp mimics a film camera's orange imprint, so it is the one color outside the tokens. */}
-          <figure className="rise relative order-first m-0 w-[112px] rotate-2 bg-eucalyptus p-2 pb-8 md:order-none md:w-[280px] md:p-4 md:pb-0">
+          <figure className="rise relative m-0 w-full max-w-[280px] justify-self-center rotate-2 bg-eucalyptus p-4 pb-0 md:justify-self-auto">
             {/* Thumbtack pinning the polaroid to the page. */}
             <span
               aria-hidden="true"
@@ -160,18 +160,18 @@ function App() {
               <img
                 src={portrait}
                 alt="Sonny Huynh in a black shirt and tie"
-                width={560}
-                height={560}
+                width={720}
+                height={720}
                 className="block aspect-square w-full object-cover"
               />
               <time
                 dateTime="2026-10-12"
-                className="absolute top-1 left-2 font-mono text-meta text-[#ff9a3c] [text-shadow:0_0_4px_rgb(255_120_40/0.6)] md:top-2 md:left-3"
+                className="absolute top-2 left-3 font-mono text-meta text-[#ff9a3c] [text-shadow:0_0_4px_rgb(255_120_40/0.6)]"
               >
                 10 12 '26
               </time>
             </div>
-            <figcaption className="hidden h-16 items-end justify-end pb-4 whitespace-nowrap font-mono text-meta text-on-accent md:flex">
+            <figcaption className="flex h-16 items-end justify-end pb-4 whitespace-nowrap font-mono text-meta text-on-accent">
               50mm 1/125 f/2.8 ISO100
             </figcaption>
           </figure>

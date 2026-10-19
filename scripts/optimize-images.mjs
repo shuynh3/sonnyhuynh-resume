@@ -11,7 +11,7 @@ const QUALITY = 80
 
 // Export width per photo (about 2x its displayed width). Others get DEFAULT_WIDTH.
 const WIDTHS = {
-  self_portrait: 560,
+  self_portrait: 720,
   chongqing_buildings: 720,
   chongqing_bridge: 720,
   remi_japan: 480,
