@@ -1,84 +1,75 @@
-import type { ReactNode } from "react";
-import { MarkGithubIcon } from "@primer/octicons-react";
-import { Button, Card, Link, SiteNav, Tag, ThemeToggle } from "@sonnyhuynh/ui";
-import portrait from "./assets/photos/self_portrait.webp";
-import chongqingBridge from "./assets/photos/chongqing_bridge.webp";
-import chongqingBuildings from "./assets/photos/chongqing_buildings.webp";
-import remiJapan from "./assets/photos/remi_japan.webp";
-import vyFerry from "./assets/photos/vy_ferry.webp";
+import type { ReactNode } from 'react'
+import { MarkGithubIcon } from '@primer/octicons-react'
+import { Button, Card, Link, SiteNav, Tag, ThemeToggle } from '@sonnyhuynh/ui'
+import portrait from './assets/photos/self_portrait.webp'
+import chongqingBridge from './assets/photos/chongqing_bridge.webp'
+import chongqingBuildings from './assets/photos/chongqing_buildings.webp'
+import remiJapan from './assets/photos/remi_japan.webp'
+import vyFerry from './assets/photos/vy_ferry.webp'
 
-const RESUME_PDF = "/sonnyhuynh_resume.pdf";
-const EMAIL = "sonny.huynh.dev@gmail.com";
-const GITHUB = "https://github.com/shuynh3";
-const LINKEDIN = "https://linkedin.com/in/sonny-huynh-0";
-const PHOTOS = "https://photos.sonnyhuynh.dev";
+const RESUME_PDF = '/sonnyhuynh_resume.pdf'
+const EMAIL = 'sonny.huynh.dev@gmail.com'
+const GITHUB = 'https://github.com/shuynh3'
+const LINKEDIN = 'https://linkedin.com/in/sonny-huynh-0'
+const PHOTOS = 'https://photos.sonnyhuynh.dev'
 
 const now = [
-  { label: "building", value: "Personal projects using React." },
-  { label: "shooting", value: "Urban portraits and travel photos." },
-];
+  { label: 'building', value: 'Personal projects using React.' },
+  { label: 'shooting', value: 'Urban portraits and travel photos.' },
+]
 
 const gear = [
-  { label: "development", value: "Macbook Air" },
-  { label: "camera", value: "Sony A6100" },
-  { label: "lens", value: "Sigma 28–70mm f/2.8" },
-  { label: "flash", value: "Godox V480s" },
-];
+  { label: 'development', value: 'Macbook Air' },
+  { label: 'camera', value: 'Sony A6100' },
+  { label: 'lens', value: 'Sigma 28–70mm f/2.8' },
+  { label: 'flash', value: 'Godox V480s' },
+]
 
 const work = [
   {
-    dates: "nov 2025 — now",
-    role: "Software Engineer II at Carvana",
+    dates: 'nov 2025 — now',
+    role: 'Software Engineer II at Carvana',
     summary: "Backend services for Carvana's iOS app.",
-    tags: [".net", "kafka", "kubernetes"],
+    tags: ['.net', 'kafka', 'kubernetes'],
   },
   {
-    dates: "jan 2024 — apr 2025",
-    role: "Senior Software Engineer at StrongMind",
-    summary: "AI-powered education software and tooling.",
-    tags: ["rails", "aws", "openai"],
+    dates: 'jan 2024 — apr 2025',
+    role: 'Senior Software Engineer at StrongMind',
+    summary: 'AI-powered education software and tooling.',
+    tags: ['rails', 'aws', 'openai'],
   },
   {
-    dates: "may 2021 — dec 2023",
-    role: "Software Engineer at StrongMind",
-    summary: "Backend services for online course content.",
-    tags: [".net", "python", "azure"],
+    dates: 'may 2021 — dec 2023',
+    role: 'Software Engineer at StrongMind',
+    summary: 'Backend services for online course content.',
+    tags: ['.net', 'python', 'azure'],
   },
-];
+]
 
 const toolbox = [
-  { label: "ai", tags: ["claude code", "cursor", "github copilot"] },
-  { label: "languages", tags: ["ruby", "javascript", "python", "c#"] },
-  { label: "frameworks", tags: ["rails", ".net", "django", "flask"] },
+  { label: 'ai', tags: ['claude code', 'cursor', 'github copilot'] },
+  { label: 'languages', tags: ['ruby', 'javascript', 'python', 'c#'] },
+  { label: 'frameworks', tags: ['rails', '.net', 'django', 'flask'] },
   {
-    label: "infra",
-    tags: [
-      "aws",
-      "azure",
-      "kubernetes",
-      "pulumi",
-      "terraform",
-      "github actions",
-      "azure devops",
-      "heroku",
-    ],
+    label: 'infra',
+    tags: ['aws', 'azure', 'kubernetes', 'pulumi', 'terraform', 'github actions', 'azure devops', 'heroku'],
   },
-];
+]
 
 const projects = [
   {
-    meta: "2026 · react · vite · rails",
-    title: "sonnyhuynh.dev",
-    href: "#",
-    text: "This site and its photo journal.",
+    meta: '2026 · react · vite · rails',
+    title: 'sonnyhuynh.dev',
+    href: '#',
+    text: 'This site and its photo journal.',
   },
   {
-    meta: "react · node.js · gatsby",
-    title: "PayPal static-site-generator",
-    href: "#",
-    text: "A Gatsby plugin for building online stores with PayPal checkout.",
+    meta: 'react · node.js · gatsby',
+    title: 'PayPal static-site-generator',
+    href: '#',
+    text: 'A Gatsby plugin for building online stores with PayPal checkout.',
   },
-];
+]
 
 // Labelled value: mono label over a line of text. Used by the Now/Gear card.
 function Item({ label, children }: { label: string; children: ReactNode }) {
@@ -87,43 +78,24 @@ function Item({ label, children }: { label: string; children: ReactNode }) {
       <span className="font-mono text-meta text-ink-muted">{label}</span>
       <span className="text-body leading-6">{children}</span>
     </div>
-  );
+  )
 }
 
 function Heading({ children }: { children: ReactNode }) {
-  return <h2 className="m-0 font-mono text-heading font-normal">{children}</h2>;
+  return <h2 className="m-0 font-mono text-heading font-normal">{children}</h2>
 }
 
 // A section on its own surface panel. The tonal step from the page is the separator.
-function Panel({
-  children,
-  className = "",
-  id,
-}: {
-  children: ReactNode;
-  className?: string;
-  id?: string;
-}) {
+function Panel({ children, className = '', id }: { children: ReactNode; className?: string; id?: string }) {
   return (
-    <section
-      id={id}
-      className={`reveal flex flex-col gap-4 bg-surface px-4 py-6 sm:gap-6 sm:p-8 ${className}`}
-    >
+    <section id={id} className={`reveal flex flex-col gap-4 bg-surface px-4 py-6 sm:gap-6 sm:p-8 ${className}`}>
       {children}
     </section>
-  );
+  )
 }
 
 // A photo that fills its slot, cropped to fit. Below the fold, so it loads lazily.
-function Photo({
-  src,
-  alt,
-  className = "",
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
+function Photo({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
   return (
     <img
       src={src}
@@ -132,7 +104,7 @@ function Photo({
       decoding="async"
       className={`block min-h-0 w-full bg-surface-muted object-cover ${className}`}
     />
-  );
+  )
 }
 
 function App() {
@@ -145,9 +117,7 @@ function App() {
         {/* Hero */}
         <section className="grid items-end gap-6 px-2 pb-10 md:grid-cols-[minmax(0,1fr)_280px] md:gap-16 md:px-8 md:pb-16">
           <div className="flex flex-col gap-4">
-            <p className="rise m-0 font-mono text-meta text-ink-muted">
-              Hi, I'm
-            </p>
+            <p className="rise m-0 font-mono text-meta text-ink-muted">Hi, I'm</p>
             <h1 className="rise d1 m-0 font-mono text-[40px] leading-[44px] font-normal tracking-[-0.03em] md:text-[64px] md:leading-[64px]">
               Sonny Huynh.
             </h1>
@@ -162,10 +132,7 @@ function App() {
             </p>
             <div className="rise d3 flex flex-wrap gap-4 font-mono text-meta">
               <Link href={GITHUB} external muted>
-                <MarkGithubIcon
-                  size={14}
-                  className="mr-1.5 -mt-0.5 inline-block align-middle"
-                />
+                <MarkGithubIcon size={14} className="mr-1.5 -mt-0.5 inline-block align-middle" />
                 github
               </Link>
               <Link href={LINKEDIN} external muted>
@@ -179,19 +146,11 @@ function App() {
               </Link>
             </div>
             <div className="rise d4 flex flex-col gap-2 pt-2 sm:flex-row sm:flex-wrap">
-              <Button
-                variant="primary"
-                href="#say-hi"
-                className="min-h-11 sm:min-h-0"
-              >
+              <Button variant="primary" href="#say-hi" className="min-h-11 sm:min-h-0">
                 Say hi
               </Button>
-              <Button
-                href={RESUME_PDF}
-                download
-                className="min-h-11 sm:min-h-0"
-              >
-                Download resume
+              <Button href={RESUME_PDF} target="_blank" rel="noopener noreferrer" className="min-h-11 sm:min-h-0">
+                View resume
               </Button>
             </div>
           </div>
@@ -244,9 +203,7 @@ function App() {
 
         {/* Off the clock */}
         <section className="flex flex-col gap-2 pt-8 pb-2 sm:gap-4 sm:px-8 sm:pt-12 sm:pb-4">
-          <h2 className="reveal m-0 mx-2 mb-2 font-mono text-heading font-normal sm:mx-0 sm:mb-0">
-            Off the clock
-          </h2>
+          <h2 className="reveal m-0 mx-2 mb-2 font-mono text-heading font-normal sm:mx-0 sm:mb-0">Off the clock</h2>
           <div className="grid gap-2 md:grid-cols-3 md:auto-rows-[220px] md:gap-4">
             <a
               href={PHOTOS}
@@ -274,9 +231,7 @@ function App() {
                 />
               </span>
               <span className="flex items-start justify-end gap-x-6 gap-y-2">
-                <span className="font-mono text-meta">
-                  sony a6100 · sigma 28–70mm f/2.8
-                </span>
+                <span className="font-mono text-meta">sony a6100 · sigma 28–70mm f/2.8</span>
               </span>
             </a>
             <div className="reveal tile flex flex-col gap-3 bg-eucalyptus p-3 text-on-accent md:row-span-2 md:gap-4 md:p-4">
@@ -297,7 +252,9 @@ function App() {
         <Panel className="mt-6 sm:mt-8">
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <Heading>Work</Heading>
-            <Link href={RESUME_PDF}>Full resume (PDF)</Link>
+            <Link href={RESUME_PDF} external>
+              Full resume (PDF)
+            </Link>
           </div>
           <div className="flex flex-col gap-2">
             {work.map((w) => (
@@ -305,9 +262,7 @@ function App() {
                 key={w.role}
                 className="grid items-baseline gap-1 bg-surface-muted p-4 md:grid-cols-[160px_minmax(0,1fr)_auto] md:gap-4"
               >
-                <span className="font-mono text-meta text-ink-muted">
-                  {w.dates}
-                </span>
+                <span className="font-mono text-meta text-ink-muted">{w.dates}</span>
                 <span className="flex flex-col gap-1">
                   <span className="text-title">{w.role}</span>
                   <span className="text-small text-ink-muted">{w.summary}</span>
@@ -325,9 +280,7 @@ function App() {
           <div className="grid items-baseline gap-x-4 gap-y-3 px-1 pt-2 md:grid-cols-[160px_minmax(0,1fr)] md:px-4">
             {toolbox.map((g) => (
               <div key={g.label} className="contents">
-                <span className="font-mono text-meta text-ink-muted md:leading-[22px]">
-                  {g.label}
-                </span>
+                <span className="font-mono text-meta text-ink-muted md:leading-[22px]">{g.label}</span>
                 <span className="-mt-1.5 flex flex-wrap gap-1 md:mt-0">
                   {g.tags.map((t) => (
                     <Tag key={t}>{t}</Tag>
@@ -373,9 +326,7 @@ function App() {
             <h2 className="m-0 font-mono text-[28px] leading-8 font-normal tracking-[-0.02em] md:text-[32px] md:leading-9">
               Say hi.
             </h2>
-            <p className="m-0 text-body">
-              Work, photos, or a travel recommendation. All welcome.
-            </p>
+            <p className="m-0 text-body">Work, photos, or a travel recommendation. All welcome.</p>
           </div>
           <Button href={`mailto:${EMAIL}`} className="min-h-11 md:min-h-0">
             {EMAIL}
@@ -398,7 +349,7 @@ function App() {
         </footer>
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
