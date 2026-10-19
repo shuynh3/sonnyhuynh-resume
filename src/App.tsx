@@ -100,7 +100,7 @@ function PhotoSlot({ label, className = '' }: { label: string; className?: strin
 function App() {
   return (
     <>
-      <SiteNav current="resume">
+      <SiteNav current="about">
         <ThemeToggle />
       </SiteNav>
       <main className="mx-auto flex max-w-[1024px] flex-col gap-2 px-2 pt-12 pb-12 sm:gap-4 sm:px-8 sm:pt-24 sm:pb-16">

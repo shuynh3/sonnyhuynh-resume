@@ -1,6 +1,6 @@
 # sonnyhuynh-resume
 
-Resume site for resume.sonnyhuynh.dev. React 19 + Vite + TypeScript + Tailwind v4. Single scrolling page; no section nav.
+About page for about.sonnyhuynh.dev (an intro with a downloadable resume). React 19 + Vite + TypeScript + Tailwind v4. Single scrolling page; no section nav.
 
 ## Design system
 - Components and tokens come from `@sonnyhuynh/ui`, linked from `../sonnyhuynh-ui` (`file:` dependency). Change shared UI there, not here.
