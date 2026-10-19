@@ -7,7 +7,7 @@ import chongqingBuildings from './assets/photos/chongqing_buildings.webp'
 import remiJapan from './assets/photos/remi_japan.webp'
 import vyFerry from './assets/photos/vy_ferry.webp'
 
-const RESUME_PDF = '/sonny-huynh-resume.pdf'
+const RESUME_PDF = '/sonnyhuynh_resume.pdf'
 const EMAIL = 'sonny.huynh.dev@gmail.com'
 const GITHUB = 'https://github.com/shuynh3'
 const LINKEDIN = 'https://linkedin.com/in/sonny-huynh-0'
@@ -116,11 +116,13 @@ function App() {
               Sonny Huynh.
             </h1>
             <p className="rise d2 m-0 max-w-[560px] text-[18px] leading-7 md:text-[20px] md:leading-8">
-              I'm a software engineer based in Chandler, Arizona. When I'm not at a keyboard, you can find a camera in
-              my hands.
+              {/* I'm a software engineer based in Chandler, Arizona. When I'm not
+              at a keyboard, you can find a camera in my hands. */}
+              I'm a software engineer based in Chandler, Arizona.
             </p>
             <p className="rise d3 m-0 max-w-[560px] text-body text-ink-muted">
-              Five years building web applications with Ruby on Rails and .NET.
+              {/* Five years building web applications with Ruby on Rails and .NET. */}
+              When I'm not at a keyboard, you can find a camera in my hands.
             </p>
             <div className="rise d3 flex flex-wrap gap-4 font-mono text-meta">
               <Link href={GITHUB} external muted>
@@ -141,7 +143,7 @@ function App() {
               <Button variant="primary" href="#say-hi" className="min-h-11 sm:min-h-0">
                 Say hi
               </Button>
-              <Button href={RESUME_PDF} className="min-h-11 sm:min-h-0">
+              <Button href={RESUME_PDF} download className="min-h-11 sm:min-h-0">
                 Download resume
               </Button>
             </div>
