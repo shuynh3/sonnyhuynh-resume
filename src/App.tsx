@@ -2,6 +2,10 @@ import type { ReactNode } from 'react'
 import { MarkGithubIcon } from '@primer/octicons-react'
 import { Button, Card, Link, SiteNav, Tag, ThemeToggle } from '@sonnyhuynh/ui'
 import portrait from './assets/photos/self_portrait.webp'
+import chongqingBridge from './assets/photos/chongqing_bridge.webp'
+import chongqingBuildings from './assets/photos/chongqing_buildings.webp'
+import remiJapan from './assets/photos/remi_japan.webp'
+import vyFerry from './assets/photos/vy_ferry.webp'
 
 const RESUME_PDF = '/sonny-huynh-resume.pdf'
 const EMAIL = 'sonny.huynh.dev@gmail.com'
@@ -84,16 +88,16 @@ function Panel({ children, className = '', id }: { children: ReactNode; classNam
   )
 }
 
-// Stand-in for a photo until real images are added.
-function PhotoSlot({ label, className = '' }: { label: string; className?: string }) {
+// A photo that fills its slot, cropped to fit. Below the fold, so it loads lazily.
+function Photo({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
   return (
-    <div
-      role="img"
-      aria-label={`Photo placeholder: ${label}`}
-      className={`flex items-end bg-surface-muted p-2 font-mono text-meta text-ink-muted ${className}`}
-    >
-      [{label}]
-    </div>
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      className={`block min-h-0 w-full bg-surface-muted object-cover ${className}`}
+    />
   )
 }
 
@@ -195,28 +199,43 @@ function App() {
           <div className="grid gap-2 md:grid-cols-3 md:auto-rows-[220px] md:gap-4">
             <a
               href={PHOTOS}
-              className="reveal tile flex flex-col gap-4 bg-sage p-4 text-on-accent no-underline md:col-span-2 md:row-span-2 md:gap-5 md:p-6"
+              className="reveal tile flex flex-col gap-3 bg-sage p-3 text-on-accent no-underline md:col-span-2 md:row-span-2 md:gap-4 md:p-4"
             >
               <span className="flex justify-between gap-4 font-mono text-meta">
                 <span>01 · photography</span>
                 <span>photos.sonnyhuynh.dev ↗</span>
               </span>
               <span className="grid min-h-0 grow grid-cols-[3fr_2fr] grid-rows-[120px_120px] gap-1.5 md:grid-rows-2 md:gap-2">
-                <PhotoSlot label="portrait · city" className="row-span-2" />
-                <PhotoSlot label="friends · street" />
-                <PhotoSlot label="candid · night" />
+                <Photo
+                  src={chongqingBridge}
+                  alt="A red cable-stayed bridge over the river in Chongqing, framed by trees"
+                  className="row-span-2 h-full"
+                />
+                <Photo
+                  src={remiJapan}
+                  alt="A friend in a white cap walking past a restaurant in Japan"
+                  className="h-full"
+                />
+                <Photo
+                  src={vyFerry}
+                  alt="A friend leaning on a ferry railing at dusk, city lights behind"
+                  className="h-full"
+                />
               </span>
-              <span className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
-                <span className="max-w-[440px] text-[20px] leading-[26px] font-medium md:text-[22px] md:leading-7">
-                  People in the city &amp; Travel photos.
-                </span>
+              <span className="flex items-start justify-end gap-x-6 gap-y-2">
                 <span className="font-mono text-meta">sony a6100 · sigma 28–70mm f/2.8</span>
               </span>
             </a>
-            <div className="reveal tile flex flex-col gap-4 bg-eucalyptus p-4 text-on-accent md:row-span-2 md:gap-5 md:p-6">
+            <div className="reveal tile flex flex-col gap-3 bg-eucalyptus p-3 text-on-accent md:row-span-2 md:gap-4 md:p-4">
               <span className="font-mono text-meta">02 · travel</span>
-              <PhotoSlot label="travel · sight" className="h-40 md:h-auto md:grow" />
-              <span className="text-title">traveling with a camera</span>
+              <Photo
+                src={chongqingBuildings}
+                alt="Apartment towers over a narrow street in Chongqing, a yellow taxi below"
+                className="h-40 md:h-0 md:grow"
+              />
+              <span className="flex items-start justify-end gap-x-6 gap-y-2">
+                <span className="font-mono text-meta">Chongqing, China</span>
+              </span>
             </div>
           </div>
         </section>
