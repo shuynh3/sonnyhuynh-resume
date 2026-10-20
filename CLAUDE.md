@@ -3,7 +3,7 @@
 About page for about.sonnyhuynh.dev (an intro with a downloadable resume). React 19 + Vite + TypeScript + Tailwind v4. Single scrolling page; no section nav.
 
 ## Design system
-- Components and tokens come from `@sonnyhuynh/ui`, linked from `../sonnyhuynh-ui` (`file:` dependency). Change shared UI there, not here.
+- Components and tokens come from `@sonnyhuynh/ui`, installed from GitHub (`github:shuynh3/sonnyhuynh-ui#vX.Y.Z`). Change shared UI in `../sonnyhuynh-ui`, not here; link it locally with `npm install --no-save ../sonnyhuynh-ui`, then tag a release and bump the tag here.
 - Visual reference: https://claude.ai/artifact/UPMtNR95M2YJQ8PCsRdHaE — read its `project/README.md` before UI work.
 - Only system utilities exist (`bg-sage`, `text-ink-muted`, `text-meta`, `font-mono`…); the default Tailwind palette and type scale are cleared on purpose.
 - Separate sections with surfaces, not lines: sections are `bg-surface` panels on the page, cards inside them are `surface-muted` (the Card default). No borders under headings or around cards.

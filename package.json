@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@primer/octicons-react": "^19.40.0",
-    "@sonnyhuynh/ui": "file:../sonnyhuynh-ui",
+    "@sonnyhuynh/ui": "git+https://github.com/shuynh3/sonnyhuynh-ui.git#v0.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
